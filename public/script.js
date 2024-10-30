@@ -29,4 +29,3 @@ document.getElementById('uploadForm').addEventListener('submit', async (event) =
         document.getElementById('result').innerText = 'Bir hata oluştu.';
     }
 });
-
