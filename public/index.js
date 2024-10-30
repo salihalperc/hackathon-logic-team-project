@@ -132,6 +132,67 @@ function register() {
       });
   }
 
+  function loadUsersForAdmin() {
+    const userListDiv = document.getElementById("user_list");
+    userListDiv.innerHTML = ""; // Clear existing users
+  
+    db.collection("user")
+      .get()
+      .then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+          const userData = doc.data();
+          const userDiv = document.createElement("div");
+          userDiv.setAttribute("data-id", doc.id);
+  
+          // Display full_name, classroom_id, and remove the homework buttons
+          userDiv.innerHTML = `
+                  <p>Full Name: ${userData.full_name} ${
+            userData.role === 1 ? "(Admin)" : ""
+          }</p>
+                  <p>Classroom ID: ${userData.classroom_id}</p>
+                  <p>Homework: ${
+                    userData.homework ? userData.homework : "No homework assigned"
+                  }</p>
+                  <hr>
+              `;
+          userListDiv.appendChild(userDiv);
+        });
+      })
+      .catch((error) => {
+        console.error("Error fetching users: ", error);
+      });
+  }
+
+  function loadUserProfile() {
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        db.collection("user")
+          .doc(user.uid)
+          .get()
+          .then((doc) => {
+            if (doc.exists) {
+              const userData = doc.data();
+              document.getElementById("user_profile").innerHTML = `
+                          <p>Full Name: ${userData.full_name}</p>
+                          <p>Email: ${userData.email}</p>
+                          <p>Classroom ID: ${userData.classroom_id}</p>
+                          <p>Homework: ${
+                            userData.homework
+                              ? userData.homework
+                              : "No homework assigned"
+                          }</p>
+                      `;
+            }
+          })
+          .catch((error) => {
+            console.error("Error fetching user data: ", error);
+          });
+      } else {
+        alert("No user is signed in.");
+      }
+    });
+  }
+
 
 function validate_email(email) {
   const expression = /^[^@]+@\w+(\.\w+)+\w$/;
