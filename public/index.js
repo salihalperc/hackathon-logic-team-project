@@ -134,7 +134,7 @@ function register() {
 
   function loadUsersForAdmin() {
     const userListDiv = document.getElementById("user_list");
-    userListDiv.innerHTML = ""; // Clear existing users
+    userListDiv.innerHTML = "";
   
     db.collection("user")
       .get()
@@ -143,15 +143,14 @@ function register() {
           const userData = doc.data();
           const userDiv = document.createElement("div");
           userDiv.setAttribute("data-id", doc.id);
-  
-          // Display full_name, classroom_id, and remove the homework buttons
+
           userDiv.innerHTML = `
                   <p>Full Name: ${userData.full_name} ${
             userData.role === 1 ? "(Admin)" : ""
           }</p>
                   <p>Classroom ID: ${userData.classroom_id}</p>
                   <p>Homework: ${
-                    userData.homework ? userData.homework : "No homework assigned"
+                    userData.homework ? userData.homework : "Ödev atanmadı."
                   }</p>
                   <hr>
               `;
@@ -159,7 +158,7 @@ function register() {
         });
       })
       .catch((error) => {
-        console.error("Error fetching users: ", error);
+        console.error("Kullanıcılara erişirken hata: ", error);
       });
   }
 
@@ -179,20 +178,78 @@ function register() {
                           <p>Homework: ${
                             userData.homework
                               ? userData.homework
-                              : "No homework assigned"
+                              : "Ödev atanmadı."
                           }</p>
                       `;
             }
           })
           .catch((error) => {
-            console.error("Error fetching user data: ", error);
+            console.error("Kullanıcılara erişirken hata: ", error);
           });
       } else {
-        alert("No user is signed in.");
+        alert("Giriş yapılmadı.");
       }
     });
   }
 
+function assignHomeworkByClassroom() {
+    const classroom_id = document.getElementById("classroom_id_input").value;
+    const homework = prompt("Ödev girin:");
+  
+    if (homework && classroom_id) {
+      db.collection("user")
+        .where("classroom_id", "==", classroom_id)
+        .get()
+        .then((querySnapshot) => {
+          const batch = db.batch();
+  
+          querySnapshot.forEach((doc) => {
+            batch.update(doc.ref, { homework: homework });
+          });
+  
+          return batch.commit();
+        })
+        .then(() => {
+          alert("Sınıftaki herkese ödeva atandı.");
+        })
+        .catch((error) => {
+          console.error("Sınıfa ödev atamada hata: ", error);
+        });
+    } else {
+      alert("Classroom ID ve ödev girin.");
+    }
+  }
+  
+function removeHomeworkByClassroom() {
+    const classroom_id = document.getElementById(
+      "classroom_id_input_remove"
+    ).value;
+  
+    if (classroom_id) {
+      db.collection("user")
+        .where("classroom_id", "==", classroom_id)
+        .get()
+        .then((querySnapshot) => {
+          const batch = db.batch();
+  
+          querySnapshot.forEach((doc) => {
+            batch.update(doc.ref, {
+              homework: firebase.firestore.FieldValue.delete(),
+            });
+          });
+  
+          return batch.commit();
+        })
+        .then(() => {
+          alert("Sınıtaki herkesten ödev kaldırıldı.");
+        })
+        .catch((error) => {
+          console.error("Sınıftan ödev kaldırırken hata: ", error);
+        });
+    } else {
+      alert("Classroom ID girin.");
+    }
+  }
 
 function validate_email(email) {
   const expression = /^[^@]+@\w+(\.\w+)+\w$/;
