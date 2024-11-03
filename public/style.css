@@ -1,0 +1,254 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+body {
+    background-color: #f4f4f9;
+    color: #333;
+    line-height: 1.6;
+    padding-top: 70px; /* Offset for fixed navbar height */
+}
+#user {
+    display: inline-block;
+    background-color: #3d5a5a;
+    border: none;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    align-items: center;
+    margin: auto;
+    font-weight: bold;
+}
+#uploadForm {
+    margin-bottom: 20px;
+    background-color: #ffffff;
+    padding: 20px 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+#fileInput {
+    margin-bottom: 20px;
+    padding: 10px;
+    font-size: 1em;
+    color: black; /* Yazı rengini beyaz yapalım */
+    border: 2px solid #6c63ff; /* Kenar rengi */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+#fileInput:hover {
+    border-color: #9c96ff; /* Hover durumunda kenar rengi */
+}
+#result { /* Result area styling */
+    white-space: pre-wrap; /* Metin formatını korumak için */
+    text-align: center;
+    margin: auto;
+}
+#result {
+    margin-top: 1rem;
+    font-size: 1.1rem;
+    color: #333;
+    max-height: 200px; /* Set a maximum height */
+    overflow-y: auto; /* Enable vertical scrolling if content overflows */
+    padding: 1rem;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    width: 100%; /* Ensure it takes full width of the section */
+    word-wrap: break-word; /* Break long words to avoid overflow */
+}
+#loading {
+    font-size: 1.5em;
+    text-align: center;
+    margin: auto;
+    margin-top: 1rem;
+    border: 4px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 4px solid #4a4e69;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+
+}
+button {
+    margin-top: 1rem;
+    font-size: 1em;
+    transition: background 0.3s ease;
+    padding: 0.7rem 1.2rem;
+    background-color: #6c63ff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+}
+button:hover {
+    background-color: #3b3d52;
+}
+@-webkit-keyframes spin { /* Safari ve diğer tarayıcılar için animasyon */
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+.collapsible { /* Collapsible button */
+    background-color: #6c63ff;
+    text-align: left;
+    color: #fff;
+    padding: 1rem;
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+}
+.collapsible:hover {
+    background-color: #3b3d52;
+}
+.content {
+    display: none; /* Hidden by default */
+    padding: 0; /* No padding initially to avoid size shift */
+    margin-top: 1rem;
+    color: #333;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+    text-align: center;
+}
+.content p {   /* Add some transition for smooth opening and closing */
+    margin: 10px 0;
+}
+.navbar { /* Top navigation bar styling - fixed to top */
+    width: 100%;
+    background-color: #3b3b4f;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+.navbar-left {
+    display: flex;
+    align-items: center;
+}
+.navbar-right {
+    display: flex;
+    gap: 1.5rem;
+}
+.navbar-link {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1em;
+    transition: color 0.3s ease;
+}
+.navbar-link:hover {
+    color: #649c9c;
+}
+.main-content { /* Main content styling */
+    padding: 2rem;
+    max-width: 1200px;
+    margin: auto;
+}
+.main-title {
+    text-align: center;
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 1.5rem;
+}
+.admin-sections { /* Admin panel sections styling */
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.admin-section {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    flex: 1;
+    min-width: 280px;
+    max-width: 45%;
+    text-align: center;
+}
+.admin-section h3 { /* Heading in admin section */
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 1rem;
+}
+.collapsible.active + .content { /* Apply padding only when content is visible */
+    display: block;
+    padding: 1rem;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+input[type="file"], /* Ensure input fields have consistent styling */
+input[type="text"] {
+    width: calc(100% - 1rem);
+    margin-top: 1rem;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.container { /* Arka plan rengini ve sayfanın en altına hizalama*/
+    background-color: #3b3b4f; /* Arka plan Rengi */
+    color: #adb5bd; /* Metin için açık gri renk */
+    position: fixed; /* En Alta Hizalama */
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    border-radius: 8px 8px 0 0; /* Üst köşelere border-radius ekleyelim */
+}
+footer { /* Footer içindeki nav bar */
+    padding: 1rem 0;
+    background-color: #3b3b4f;
+}
+.nav-link { /* Menü öğeleri yatay hizalanması ve beyaz renkte olması */
+    color: #adb5bd; /* Açık gri renk */
+    text-decoration: none;
+}
+.nav-link:hover {
+    color: #ffffff; /* Beyaz renk hover efekti */
+}
+.nav { /* Nav elemanlarını ortalayan ayarlar */
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem; /* Menü öğeleri arasındaki boşluk */
+    border-bottom: 1px solid #6c757d; /* Alt çizgi */
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+    list-style-type: none;
+}
+.text-center { /* Telif hakkı metni ortalanmış */
+    text-align: center;
+    color: #adb5bd; /* Açık gri renk */
+}
+@media (max-width: 576px) { /* Mobil responsive */
+    .nav {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
+#read-more-btn {
+    width: 30%;
+}

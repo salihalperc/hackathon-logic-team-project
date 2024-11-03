@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body onload="displayUserNameforUser()">
+    <!-- Top navigation bar -->
+    <header class="navbar">
+        <div class="navbar-left">
+            <p id="user" class="username-display"></p>
+        </div>
+        <nav class="navbar-right">
+            <a href="#" class="navbar-link" onclick="logout()">Log Out</a>
+            <a href="mailto: hackathonlogicteam@hotmail.com" class="navbar-link">Contact</a>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <!-- Greeting message -->
+
+
+        <!-- Assignments section -->
+        <section class="assignments-section">
+            <button class="collapsible" onclick="loadHwforUser()">See Homework</button>
+            <div class="content" id="user_hw">
+                <!-- Homework content will load here -->
+            </div>
+        </section>
+        <div class="container">
+            <footer class="py-3 my-4">
+                    <p class="text-center text-body-secondary">© 2024 Hackathon Logic Team</p>
+            </footer>
+    </main>
+
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-storage.js"></script>
+    <script src="index.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const collapsibles = document.querySelectorAll(".collapsible");
+            collapsibles.forEach(collapsible => {
+                collapsible.addEventListener("click", function() {
+                    this.classList.toggle("active");
+
+                    // Toggle content display
+                    const content = this.nextElementSibling;
+                    content.style.display = content.style.display === "block" ? "none" : "block";
+                });
+            });
+        });
+    </script>
+</body>
+</html>

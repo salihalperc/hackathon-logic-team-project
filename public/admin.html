@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body onload="displayUserNameforAdmin()">
+    <!-- Top navigation bar -->
+    <header class="navbar">
+        <div class="navbar-left">
+            <p id="user" class="username-display"></p>
+        </div>
+        <nav class="navbar-right">
+            <a href="#" class="navbar-link" onclick="logout()">Log Out</a>
+            <a href="mailto: hackathonlogicteam@hotmail.com" class="navbar-link">Contact</a>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <h2 class="main-title">Teacher Page</h2>
+
+        <!-- Side-by-side sections for "See Students" and "MP3 to Text Converter" -->
+        <div class="admin-sections">
+            <!-- See Students Section -->
+            <section class="admin-section">
+                <button class="collapsible" onclick="loadUsersForAdmin()">See Students</button>
+                <div class="content">
+                    <p>Students at Classroom</p>
+                    <div id="user_list"></div>
+                </div>
+                <input type="text" id="classroom_id_input" placeholder="Classroom ID">
+                <button id="assignButton">Assign Homework</button>
+                <input type="text" id="classroom_id_input_remove" placeholder="Classroom ID">
+                <button onclick="removeHomeworkByClassroom()">Remove Homework</button>
+            </section>
+
+            <!-- MP3 to Text Converter Section -->
+            <section class="admin-section">
+                <h3>MP3 to Text Converter</h3>
+                <form id="uploadForm">
+                    <input type="file" id="fileInput" accept=".mp3" required>
+                    <button type="submit">Upload</button>
+                </form>
+                <div id="loading" class="loader" style="display: none;"></div>
+                <div id="result"></div>
+            </section>
+        </div>
+        <div class="container">
+            <footer class="py-3 my-4">
+                    <p class="text-center text-body-secondary">© 2024 Hackathon Logic Team</p>
+            </footer>
+        </div>
+    </main>
+
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-storage.js"></script>
+    <script src="index.js"></script>
+    <script src="./script.js"></script>
+</body>
+</html>
