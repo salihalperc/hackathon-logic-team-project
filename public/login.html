@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Login Page</title>
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
+          rel="stylesheet"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap"
+          rel="stylesheet"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap"
+          rel="stylesheet"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Bowlby+One+SC&display=swap"
+          rel="stylesheet"
+        />
+        <!-- Custom stylesheet -->
+        <link rel="stylesheet" type="text/css" href="login.css">
+    </head>
+    <body>
+        <div id="content_container">
+            <div class="login-container">
+                <h2 class="login-title">Login</h2>
+                <p class="login-subtitle">Enter your details here</p>
+
+                <div id="login_form">
+                    <input type="text" id="email" placeholder="Enter Email" required>
+                    <input type="password" id="password" placeholder="Passcode" required>
+                    
+                    <button type="submit" class="login-btn" onclick="login()">Sign in</button>
+
+                    <p class="trouble">Having trouble in sign in?</p>
+                    <p class="register-link">Don’t have an account? <a href="register.html">Request Now</a></p>
+                </div>
+            </div>
+        </div>
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script> <!-- Firestore SDK -->
+
+    <!-- Our script must be loaded after firebase references -->
+    <script src="index.js"></script>
+    </body>
+</html>
