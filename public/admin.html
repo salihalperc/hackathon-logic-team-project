@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body onload="loadUsersForAdmin()">
+    <h2>Admin Panel - User List</h2>
+    <div id="user_list"></div>
+    <input type="text" id="classroom_id_input" placeholder="Classroom ID">
+    <button onclick="assignHomeworkByClassroom()">Assign Homework to Classroom</button>
+    
+    <input type="text" id="classroom_id_input_remove" placeholder="Classroom ID">
+    <button onclick="removeHomeworkByClassroom()">Remove Homework from Classroom</button>
+
+    <h1 class="main-title">MP3 to Text Converter</h1>
+    <form id="uploadForm">
+        <input type="file" id="fileInput" accept=".mp3" required>
+        <button type="submit">Upload</button>
+    </form>
+    
+
+    <div id="loading" class="loader" style="display: none;"></div>
+    <div id="result"></div>
+    <button id="assignButton" style="display: none;">Assign It</button>
+
+
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-storage.js"></script>
+    <script src="index.js"></script>
+    <script src="./script.js"></script>
+</body>
+</html>
