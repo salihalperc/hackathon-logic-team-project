@@ -1,0 +1,79 @@
+/* Arka plan ve font */
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    background-color: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#content_container {
+    background-color: #3b3b4f;
+    color: #ffffff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 350px;
+}
+
+.register-title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+#register_form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#register_form input[type="text"],
+#register_form input[type="email"],
+#register_form input[type="password"],
+#register_form select {
+    padding: 12px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    background-color: #e9e9e9;
+    color: #333333;
+    font-size: 14px;
+}
+
+#register_form input::placeholder {
+    color: #666666;
+}
+
+.register-btn {
+    background-color: #6c63ff;
+    color: #ffffff;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: 500;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.register-btn:hover {
+    background-color: #5753d9;
+}
+
+.login-link {
+    font-size: 12px;
+    color: #cccccc;
+    margin-top: 10px;
+}
+
+.login-link a {
+    color: #6c63ff;
+    text-decoration: none;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+}
