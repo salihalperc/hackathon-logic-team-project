@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <title>Login</title>
+    <!-- Cool Google Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
@@ -20,17 +21,16 @@
       href="https://fonts.googleapis.com/css2?family=Bowlby+One+SC&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" type="text/css" href="index.css" />
+    <!-- Our stylesheet -->
+    <link rel="stylesheet" type="text/css" href="register.css" />
   </head>
   <body>
     <div id="content_container">
-      <div id="form_container">
-        <div id="form_header_container">
-          <h2 id="form_header">Login + Firebase Database</h2>
-        </div>
+      <div class="register-container">
+        <h2 class="register-title">Register</h2>
 
         <div id="form_content_container">
-          <div id="form_content_inner_container">
+          <div id="register_form">
             <input type="text" id="full_name" placeholder="Full name" />
             <input type="email" id="email" placeholder="Email" />
             <input type="password" id="password" placeholder="New Password" />
@@ -40,26 +40,28 @@
               placeholder="Classroom ID"
               required
             />
+            <!-- Role selection dropdown -->
             <select id="role">
-              <option value="0">User</option>
-              <option value="1">Admin</option>
+              <option value="0">Students</option>
+              <option value="1">Teacher</option>
             </select>
 
             <div id="button_container">
-              <button onclick="login()">Login</button>
-              <button onclick="register()">Register</button>
+              <button onclick="register()" class="register-btn">Register</button>
             </div>
+            <p class="login-link">Already have an account? <a href="login.html">Login here</a></p>
           </div>
         </div>
-      </div>
+      
+        </div>
     </div>
   </body>
-
-
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
   <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
 
+  <!-- Our script must be loaded after firebase references -->
   <script src="index.js"></script>
 </html>
