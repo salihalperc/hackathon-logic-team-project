@@ -27,4 +27,5 @@ Bu ödevler Firestore'da depolanıyor.
 
 ## Projenin Eksikleri/Eklenmesi Düşünülen Özellikler
 *Öğretmen ve öğrenciler yalnızca bir classroomID ile kayıt olabiliyor. / Birden fazla classroomID'ye erişim yolu eklenebilir.*<br/>
+*Öğretmen aynı clasroomID ile yalnızca bir ödev tanımlayabiliyor. / Aynı clasroomID ile birden fazla ödev tanımanması eklenebilir.*<br/> 
 *Clasroomdaki öğrencilere kayıt oldukları bilgiler üzerinden hızlı mail özelliği, sohbet sekmesi eklenebilir ve böylece öğretmen ile öğrenci arasındaki etkileşim daha da güçlenmiş olur.*
