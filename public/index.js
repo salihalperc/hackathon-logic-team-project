@@ -1,12 +1,12 @@
-// Your web app's Firebase configuration
+// Our web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyD5UHH0OQQfQgKFRF3G6W9fyRIjiAZ19VU",
-  authDomain: "hackathon-logic-team-140d8.firebaseapp.com",
-  projectId: "hackathon-logic-team-140d8",
-  storageBucket: "hackathon-logic-team-140d8.firebasestorage.app",
-  messagingSenderId: "170299619975",
-  appId: "1:170299619975:web:9fd0fa423b91618196d622",
-  measurementId: "G-R8EGQXKC2C"
+  apiKey: "YOUR_API_KEY",
+  authDomain: "YOUR_AUTH_DOMAIN",
+  projectId: "YOUR_PROJECT_ID",
+  storageBucket: "YOUR_STORAGE_BUCKET",
+  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+  appId: "YOUR_APP_ID",
+  measurementId: "YOUR_MEASUREMENT_ID"
 };
 
 // Initialize Firebase
